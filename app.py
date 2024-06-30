@@ -237,4 +237,5 @@ async def send_confirmation_email(user_name, user_email, payment_id):
     except Exception as e:
         print(f'Failed to send email: {e}')
 if __name__ == '__main__':
-    app.run(port=4000,debug=True)
+    # app.run(port=4000,debug=True)
+    app.run()
