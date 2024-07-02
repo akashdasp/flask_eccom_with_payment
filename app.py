@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify,render_template
+from flask import Flask, request, jsonify,render_template,send_from_directory
 import hashlib
 import hmac
 import os
@@ -182,9 +182,9 @@ async def send_confirmation_email(user_name, user_email, payment_id):
         </tr>
     </table>
     <p>Best regards,</p>
-    <p>Mr. Anupam Ghorai<</p>
+    <p>Mr. Anupam Ghorai</p>
     <p>B.A.S.L.P(WBUHS)</p>
-    <p>RCI REG-A72311<</p>
+    <p>RCI REG-A72311</p>
     <p>Phone Number:+91-7003458858<p>
 </body>
 </html>
@@ -236,6 +236,22 @@ async def send_confirmation_email(user_name, user_email, payment_id):
             # print('Email sent successfully!')
     except Exception as e:
         print(f'Failed to send email: {e}')
+
+
+@app.route('/terms')
+def terms():
+    return render_template('Terms_and_condition_page.html')
+@app.route('/contact')
+def contact():
+    return render_template("Contact_us_page.html")
+@app.route('/privacy')
+def privacy():
+    return render_template("Privacy_policy_page.html")
+@app.route('/about_us')
+def about_us():
+    return render_template("About_us_page.html")
+@app.route('/refund')
+def refund():
+    return render_template("Refund_and_Cancellation_page.html")
 if __name__ == '__main__':
-    # app.run(port=4000,debug=True)
     app.run()
